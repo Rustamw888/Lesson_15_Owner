@@ -1,6 +1,7 @@
 package io.qaguru.owner.config;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.aeonbits.owner.ConfigFactory;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -12,7 +13,7 @@ public class WebDriverProvider implements Supplier<WebDriver> {
     private WebDriverConfig config;
 
     public WebDriverProvider() {
-        this.config = new WebDriverConfig();
+        this.config = ConfigFactory.create(WebDriverConfig.class, System.getProperties());
     }
 
     @Override
